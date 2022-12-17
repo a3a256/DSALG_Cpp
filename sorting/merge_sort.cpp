@@ -1,5 +1,28 @@
 #include <iostream>
 #include <cstdio>
+#include <vector>
+
+std::vector<int> combine(const std::vector<int> &left, const std::vector<int> &right){
+    int i = 0;
+    int j = 0;
+}
+
+std::vector<int> sort(const std::vector<int> &vec){
+    if(vec.size() == 1){
+        return vec;
+
+
+    int middle = vec.size()/2;
+    std::vector<int> right;
+    std::vector<int> left;
+    for(int i = 0; i<middle; i++){
+        left.push_back(vec[i]);
+    }
+    for(int j = middle; j<vec.size(); j++){
+        right.push_back(vec[j]);
+    }
+    }
+}
 
 int* merge(int left[], int right[], int l, int r){
     if(l == 1){
