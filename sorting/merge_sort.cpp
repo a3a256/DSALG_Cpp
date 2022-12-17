@@ -5,12 +5,32 @@
 std::vector<int> combine(const std::vector<int> &left, const std::vector<int> &right){
     int i = 0;
     int j = 0;
+    std::vector<int> res;
+    while(i<left.size() && j<right.size()){
+        if(left[i] < right[j]){
+            res.push_back(left[i]);
+            i ++;
+        }else{
+            res.push_back(right[j]);
+            j ++;
+        }
+    }
+
+    while(i < left.size()){
+        res.push_back(left[i]);
+        i ++;
+    }
+    while(j < right.size()){
+        res.push_back(right[j]);
+        j++;
+    }
+    return res;
 }
 
 std::vector<int> sort(const std::vector<int> &vec){
     if(vec.size() == 1){
         return vec;
-
+    }
 
     int middle = vec.size()/2;
     std::vector<int> right;
@@ -21,7 +41,8 @@ std::vector<int> sort(const std::vector<int> &vec){
     for(int j = middle; j<vec.size(); j++){
         right.push_back(vec[j]);
     }
-    }
+
+    return combine(sort(left), sort(right));
 }
 
 int* merge(int left[], int right[], int l, int r){
@@ -94,12 +115,12 @@ int* mergeSort(int arr[], int length){
 
 
 int main(){
-    int arr[5] = {1, 5, 2, 9, 6};
-    int* k;
-    k = mergeSort(arr, (int)5);
+    std::vector<int> arr {1, 5, 2, 9, 6};
+    std::vector<int> sorted;
+    sorted = sort(arr);
     std::cout << "check" << "\n";
-    for(int i = 0; i<5; i++){
-        std::cout << k[i] << " ";
+    for(int i = 0; i<arr.size(); i++){
+        std::cout << sorted[i] << " ";
     }
     std::cout << "\n";
     return 0;
