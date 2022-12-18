@@ -39,4 +39,5 @@ int main(){
         std::cout << sorted[i] << " ";
     }
     std::cout << "\n";
+    return 0;
 }
