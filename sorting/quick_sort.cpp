@@ -2,6 +2,9 @@
 #include <vector>
 
 std::vector<int> sort(std::vector<int> left, std::vector<int> right, int pivot){
+    if(left.size() == 0){
+        std::cout << "empty";
+    }
     left.push_back(pivot);
     for(int i = 0; i<right.size(); i++){
         left.push_back(right[i]);
@@ -10,13 +13,13 @@ std::vector<int> sort(std::vector<int> left, std::vector<int> right, int pivot){
 }
 
 
-std::vector<int> quickSort(const std::vector<int> &arr){
+std::vector<int> quickSort(std::vector<int> arr){
     if(arr.size() == 1){
         return arr;
     }
     std::cout <<"test";
     int length = arr.size();
-    int pivot = arr[length-1];
+    int pivot = arr.at(length-1);
     std::vector<int> right;
     std::vector<int> left;
     for(int i = 0; i<length-1; i++){
