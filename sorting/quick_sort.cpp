@@ -10,7 +10,7 @@ std::vector<int> sort(std::vector<int> left, std::vector<int> right, int pivot){
 }
 
 
-std::vector<int> quickSort(std::vector<int> arr){
+std::vector<int> quickSort(const std::vector<int> &arr){
     if(arr.size() == 1){
         return arr;
     }
