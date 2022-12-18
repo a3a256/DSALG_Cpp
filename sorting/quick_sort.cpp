@@ -14,6 +14,7 @@ std::vector<int> quickSort(const std::vector<int> &arr){
     if(arr.size() == 1){
         return arr;
     }
+    std::cout <<"test";
     int length = arr.size();
     int pivot = arr[length-1];
     std::vector<int> right;
@@ -32,8 +33,9 @@ std::vector<int> quickSort(const std::vector<int> &arr){
 int main(){
     std::vector<int> test {9, 6, 2, 9, 1};
     std::vector<int> sorted;
+    std::cout << "test\n";
     sorted = quickSort(test);
-    for(int i = 0; i<sorted.size(); i++){
+    for(int i = 0; i<test.size(); i++){
         std::cout << sorted[i] << " ";
     }
     std::cout << "\n";
