@@ -29,6 +29,15 @@ class LinkedList{
             }
         }
 
+        void insert_at_end(int val){
+            Node* new_node = new Node(val);
+            Node* itr = head;
+            while(itr->next != nullptr){
+                itr = itr->next;
+            }
+            itr->next = new_node;
+        }
+
         void display(){
             Node* temp = head;
             while(temp != nullptr){
@@ -45,6 +54,10 @@ int main(){
     lst.insert(1);
     lst.insert(2);
     lst.insert(3);
+
+    lst.display();
+
+    lst.insert_at_end(5);
 
     lst.display();
 }
