@@ -16,23 +16,25 @@ struct Node{
 class BinarySearchTree{
 
     public:
-        Node *root;
+        Node *head;
 
         BinarySearchTree(){
-            root = nullptr;
+            head = nullptr;
         }
 
         void insert(int val){
             Node* new_leaf = new Node(val);
-            if(root == nullptr){
-                root = new_leaf;
+            if(head == nullptr){
+                head = new_leaf;
             }else{
-                Node* itr = root;
-                if(val >= itr->root){
-                    if(itr->left == nullptr){
-                        itr->left = new_leaf;
+                Node* focusNode = head;
+                Node* parent;
+                if(val >= focusNode->root){
+                    focusNode = focusNode->right;
+                    if(parent == nullptr){
+                        parent->right = new_leaf;
                     }else{
-                        itr->left.insert(val);
+                        return;
                     }
                 }
             }
