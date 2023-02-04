@@ -29,12 +29,20 @@ class BinarySearchTree{
             }else{
                 Node* focusNode = head;
                 Node* parent;
-                if(val >= focusNode->root){
-                    focusNode = focusNode->right;
-                    if(parent == nullptr){
-                        parent->right = new_leaf;
+                while(true){
+                    parent = focusNode;
+                    if(val >= focusNode->root){
+                        focusNode = focusNode->right;
+                        if(focusNode == nullptr){
+                            parent->right = new_leaf;
+                            return;
+                        }
                     }else{
-                        return;
+                        focusNode = focusNode->left;
+                        if(focusNode == nullptr){
+                            parent->left = new_leaf;
+                            return;
+                        }
                     }
                 }
             }
