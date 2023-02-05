@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 struct Node{
     int root;
@@ -69,6 +70,24 @@ class BinarySearchTree{
                 postOrderTraversal(currentNode->left);
                 postOrderTraversal(currentNode->right);
                 std::cout << currentNode->root << " ";
+            }
+        }
+
+
+        void levelOrderTraversal(Node* currentNode){
+            if(currentNode == nullptr){
+                return;
+            }
+
+            std::vector<int> q;
+            int n;
+            Node* currNode;
+            q.push_back(currentNode);
+            while(q.size() != 0){
+                n = q.size();
+                while(n > 0){
+                    currNode = q.pop_back();
+                }
             }
         }
 };
