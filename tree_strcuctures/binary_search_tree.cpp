@@ -55,6 +55,22 @@ class BinarySearchTree{
                 inOrderTraversal(currentNode->right);
             }
         }
+
+        void preOrderTraversal(Node* currentNode){
+            if(currentNode != nullptr){
+                std::cout << currentNode->root << " ";
+                preOrderTraversal(currentNode->left);
+                preOrderTraversal(currentNode->right);
+            }
+        }
+
+        void postOrderTraversal(Node* currentNode){
+            if(currentNode != nullptr){
+                postOrderTraversal(currentNode->left);
+                postOrderTraversal(currentNode->right);
+                std::cout << currentNode->root << " ";
+            }
+        }
 };
 
 
@@ -62,7 +78,13 @@ int main(){
     BinarySearchTree bst;
     bst.insert(5);
     bst.insert(3);
+    bst.insert(1);
+    bst.insert(4);
     bst.insert(7);
     bst.inOrderTraversal(bst.head);
+    std::cout << std::endl;
+    bst.preOrderTraversal(bst.head);
+    std::cout << std::endl;
+    bst.postOrderTraversal(bst.head);
     return 0;
 }
