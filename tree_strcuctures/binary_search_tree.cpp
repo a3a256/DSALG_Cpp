@@ -47,4 +47,22 @@ class BinarySearchTree{
                 }
             }
         }
+
+        void inOrderTraversal(Node* currentNode){
+            if(currentNode != nullptr){
+                inOrderTraversal(currentNode->left);
+                std::cout << currentNode->root << " ";
+                inOrderTraversal(currentNode->right);
+            }
+        }
 };
+
+
+int main(){
+    BinarySearchTree bst;
+    bst.insert(5);
+    bst.insert(3);
+    bst.insert(7);
+    bst.inOrderTraversal(bst.head);
+    return 0;
+}
