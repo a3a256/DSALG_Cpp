@@ -48,16 +48,20 @@ class LinkedList{
         }
 
         void bubbleSort(){
-            Node* itr = head;
+            Node* itr;
             bool sorted = false;
             int temp;
             while(!(sorted)){
+                sorted = true;
+                itr = head;
                 while(itr->next != nullptr){
                     if(itr->data > itr->next->data){
+                        sorted = false;
                         temp = itr->data;
                         itr->data = itr->next->data;
                         itr->next->data = temp;
                     }
+                    itr = itr->next;
                 }
             }
         }
