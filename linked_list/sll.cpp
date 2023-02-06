@@ -46,6 +46,21 @@ class LinkedList{
             }
             std::cout << "null, so far\n";
         }
+
+        void bubbleSort(){
+            Node* itr = head;
+            bool sorted = false;
+            int temp;
+            while(!(sorted)){
+                while(itr->next != nullptr){
+                    if(itr->data > itr->next->data){
+                        temp = itr->data;
+                        itr->data = itr->next->data;
+                        itr->next->data = temp;
+                    }
+                }
+            }
+        }
 };
 
 
@@ -58,6 +73,10 @@ int main(){
     lst.display();
 
     lst.insert_at_end(5);
+
+    lst.display();
+
+    lst.bubbleSort();
 
     lst.display();
 }
