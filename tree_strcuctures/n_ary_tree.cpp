@@ -13,3 +13,13 @@ struct Node{
         this->right = nullptr;
     }
 };
+
+
+class NAryTree{
+    public:
+        Node* head;
+
+        NAryTree(){
+            head = nullptr;
+        }
+};
