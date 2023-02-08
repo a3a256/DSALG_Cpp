@@ -49,6 +49,22 @@ class BinarySearchTree{
             }
         }
 
+        int height(Node* currentNode){
+            if(currentNode == nullptr){
+                return 0;
+            }else{
+                int tree_left;
+                int tree_right;
+                tree_left = height(currentNode->left);
+                tree_right = height(currentNode->right);
+                if(tree_left > tree_right){
+                    return tree_left + 1;
+                }else{
+                    return tree_right + 1;
+                }
+            }
+        }
+
         void inOrderTraversal(Node* currentNode){
             if(currentNode != nullptr){
                 inOrderTraversal(currentNode->left);
@@ -74,22 +90,22 @@ class BinarySearchTree{
         }
 
 
-        void levelOrderTraversal(Node* currentNode){
-            if(currentNode == nullptr){
-                return;
-            }
+        // void levelOrderTraversal(Node* currentNode){
+        //     if(currentNode == nullptr){
+        //         return;
+        //     }
 
-            std::vector<int> q;
-            int n;
-            Node* currNode;
-            q.push_back(currentNode);
-            while(q.size() != 0){
-                n = q.size();
-                while(n > 0){
-                    currNode = q.pop_back();
-                }
-            }
-        }
+        //     std::vector<int> q;
+        //     int n;
+        //     Node* currNode;
+        //     q.push_back(currentNode);
+        //     while(q.size() != 0){
+        //         n = q.size();
+        //         while(n > 0){
+        //             currNode = q.pop_back();
+        //         }
+        //     }
+        // }
 };
 
 
@@ -105,5 +121,7 @@ int main(){
     bst.preOrderTraversal(bst.head);
     std::cout << std::endl;
     bst.postOrderTraversal(bst.head);
+    std::cout << std::endl;
+    std::cout << bst.height(bst.head) << "\n";
     return 0;
 }
