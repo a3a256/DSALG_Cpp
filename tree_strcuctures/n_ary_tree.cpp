@@ -22,4 +22,18 @@ class NAryTree{
         NAryTree(){
             head = nullptr;
         }
+
+
+        void insert(int val){
+            Node* new_leaf = new Node(val);
+            if(head == nullptr){
+                head = new_leaf;
+            }else{
+                if(head->root.size() < 2){
+                    head->root.push_back(val);
+                }else{
+                    return;
+                }
+            }
+        }
 };
