@@ -120,6 +120,8 @@ class BinarySearchTree{
                     }
                 }
             }
+
+            return false;
         }
 
 
