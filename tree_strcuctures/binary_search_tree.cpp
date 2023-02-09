@@ -65,6 +65,25 @@ class BinarySearchTree{
             }
         }
 
+        void currentLevel(Node* node, int level){
+            if(node == nullptr){
+                return;
+            }
+            if(level == 1){
+                std::cout << node->root << " ";
+            }else if(level > 1){
+                currentLevel(node->left, level-1);
+                currentLevel(node->right, level-1);
+            }
+        }
+
+        void levelOrderTraversal(Node* currentNode){
+            int h = height(currentNode);
+            for(int i = 1; i<=h; i++){
+                currentLevel(currentNode, i);
+            }
+        }
+
         void inOrderTraversal(Node* currentNode){
             if(currentNode != nullptr){
                 inOrderTraversal(currentNode->left);
@@ -123,5 +142,6 @@ int main(){
     bst.postOrderTraversal(bst.head);
     std::cout << std::endl;
     std::cout << bst.height(bst.head) << "\n";
+    bst.levelOrderTraversal(bst.head);
     return 0;
 }
