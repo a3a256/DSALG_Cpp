@@ -108,6 +108,20 @@ class BinarySearchTree{
             }
         }
 
+        bool find(Node* currentNode, int value){
+            if(currentNode != nullptr){
+                if(currentNode->root == value){
+                    return true;
+                }else{
+                    if(value > currentNode->root){
+                        return find(currentNode->right, value);
+                    }else if(value < currentNode->root){
+                        return find(currentNode->left, value);
+                    }
+                }
+            }
+        }
+
 
         // void levelOrderTraversal(Node* currentNode){
         //     if(currentNode == nullptr){
@@ -143,5 +157,9 @@ int main(){
     std::cout << std::endl;
     std::cout << bst.height(bst.head) << "\n";
     bst.levelOrderTraversal(bst.head);
+    bool result = bst.find(bst.head, 1);
+    if(result){
+        std::cout << "\nFound\n";
+    }
     return 0;
 }
