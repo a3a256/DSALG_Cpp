@@ -38,6 +38,35 @@ class LinkedList{
             itr->next = new_node;
         }
 
+        int get_length(){
+            Node* itr = head;
+            int count = 0;
+            while(itr != nullptr){
+                itr = itr->next;
+                count ++;
+            }
+
+            return count;
+        }
+
+        void delete_at(int index){
+            int length = get_length();
+            if(index >= length){
+                std::cout << "Out of range\n";
+            }else{
+                Node* itr = head;
+                int i = 0;
+                while(itr != nullptr){
+                    if(i == index-1){
+                        itr->next = itr->next->next;
+                        break;
+                    }
+                    i ++;
+                    itr = itr->next;
+                }
+            }
+        }
+
         void display(){
             Node* temp = head;
             while(temp != nullptr){
@@ -78,9 +107,16 @@ int main(){
 
     lst.insert_at_end(5);
 
+    lst.insert_at_end(4);
+    lst.insert(8);
+
     lst.display();
 
     lst.bubbleSort();
+
+    lst.display();
+
+    lst.delete_at(2);
 
     lst.display();
 }
