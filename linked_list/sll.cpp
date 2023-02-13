@@ -94,6 +94,27 @@ class LinkedList{
                 }
             }
         }
+
+
+        int search(int start, int end, int target){
+            int l = (start+end)/2;
+            Node* itr = head;
+            while(start<l){
+                itr = itr->next;
+                start ++;
+            }
+
+            if (itr->data == target){
+                return l;
+            }else if(target > itr->data){
+                return search(l+1, end, target);
+            }else if(target < itr->data){
+                return search(start, l-1, target);
+            }
+
+
+            return -1;
+        }
 };
 
 
@@ -119,4 +140,6 @@ int main(){
     lst.delete_at(2);
 
     lst.display();
+
+    std::cout << lst.search(0, lst.get_length(), 4);
 }
