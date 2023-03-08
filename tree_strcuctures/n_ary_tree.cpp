@@ -1,5 +1,15 @@
 #include <iostream>
 #include <vector>
+#include <math.h>
+
+int calculate(std::vector<int> arr){
+    int sum = 0;
+    for(int i = 0; i<arr.size(); i++){
+        sum += pow(arr.at(i), 2);
+    }
+
+    return sqrt(sum);
+}
 
 
 struct Node{
@@ -26,14 +36,23 @@ class NAryTree{
 
         void insert(int val){
             Node* new_leaf = new Node(val);
+            int value;
             if(head == nullptr){
                 head = new_leaf;
             }else{
                 if(head->root.size() < 2){
                     head->root.push_back(val);
                 }else{
-                    if(head->left != nullptr){
-                        head->left = new_leaf;
+                    value = calculate(head->root);
+                    if(val >= value/2){
+                        Node* focusNode = head;
+                        Node* parent;
+                        while(true){
+                            parent = focusNode;
+                            if(val >= calculate(focusNode->root)/2 && focusNode->root.size() == 2){
+                                focusNode = focusNode->right;
+                            }
+                        }
                     }
                 }
             }
