@@ -32,7 +32,9 @@ class NAryTree{
                 if(head->root.size() < 2){
                     head->root.push_back(val);
                 }else{
-                    return;
+                    if(head->left != nullptr){
+                        head->left = new_leaf;
+                    }
                 }
             }
         }
