@@ -67,4 +67,17 @@ class NAryTree{
                 }
             }
         }
+
+
+        void inOrderTraversal(Node* currentNode){
+            if(currentNode != nullptr){
+                inOrderTraversal(currentNode->left);
+                for(int i = 0; i<currentNode->root.size(); i++){
+                    std::cout << currentNode->root[i] << ",";
+                }
+                std::cout << " ";
+
+                inOrderTraversal(currentNode->right);
+            }
+        }
 };
