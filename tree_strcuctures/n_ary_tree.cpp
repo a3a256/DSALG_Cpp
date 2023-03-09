@@ -49,8 +49,18 @@ class NAryTree{
                         Node* parent;
                         while(true){
                             parent = focusNode;
-                            if(val >= calculate(focusNode->root)/2 && focusNode->root.size() == 2){
+                            if(val >= calculate(focusNode->root)){
                                 focusNode = focusNode->right;
+                                if(focusNode == nullptr){
+                                    parent->right = new_leaf;
+                                    return;
+                                }
+                            }else{
+                                focusNode = focusNode->left;
+                                if(focusNode == nullptr){
+                                    parent->left = new_leaf;
+                                    return;
+                                }
                             }
                         }
                     }
