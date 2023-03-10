@@ -96,4 +96,6 @@ int main(){
     tree.insert(7);
 
     tree.insert(2);
+
+    tree.inOrderTraversal(tree.head);
 }
