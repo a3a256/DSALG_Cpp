@@ -52,12 +52,14 @@ class NAryTree{
                             if(val >= calculate(focusNode->root)){
                                 focusNode = focusNode->right;
                                 if(focusNode == nullptr){
+                                    std::cout << "right\n";
                                     parent->right = new_leaf;
                                     return;
                                 }
                             }else{
                                 focusNode = focusNode->left;
                                 if(focusNode == nullptr){
+                                    std::cout << "left\n";
                                     parent->left = new_leaf;
                                     return;
                                 }
@@ -81,3 +83,17 @@ class NAryTree{
             }
         }
 };
+
+
+
+int main(){
+    NAryTree tree;
+
+    tree.insert(1);
+    tree.insert(4);
+
+    tree.insert(5);
+    tree.insert(7);
+
+    tree.insert(2);
+}
