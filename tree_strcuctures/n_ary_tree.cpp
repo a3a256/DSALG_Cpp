@@ -110,6 +110,23 @@ class NAryTree{
                 std::cout << " ";
             }
         }
+
+
+        int height(Node* currentNode){
+            if(currentNode == nullptr){
+                return 0;
+            }else{
+                int tree_left;
+                int tree_right;
+                tree_left = height(currentNode->left);
+                tree_right = height(currentNode->right);
+                if(tree_left > tree_right){
+                    return tree_left + 1;
+                }else{
+                    return tree_right + 1;
+                }
+            }
+        }
 };
 
 
@@ -134,4 +151,8 @@ int main(){
     std::cout << "\n";
 
     tree.postOrderTraversal(tree.head);
+
+    std::cout << "\n";
+
+    std::cout << tree.height(tree.head);
 }
