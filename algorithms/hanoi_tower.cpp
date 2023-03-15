@@ -4,6 +4,7 @@
 void build_tower(int n, char source, char destination, char auxiliary){
     if(n == 0){
         std::cout << source << "-" << destination << "\n";
+        return;
     }
 
     build_tower(n-1, source, auxiliary, destination);
