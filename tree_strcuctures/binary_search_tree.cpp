@@ -108,18 +108,18 @@ class BinarySearchTree{
             }
         }
 
-        std::vector<int> iot(Node* currentNode){
+        std::vector<int> lot(Node* currentNode){
             std::vector<Node*> queue;
-            std::vector<int> res;
             Node* tempNode;
+            std::vector<int> res;
             queue.push_back(currentNode);
             int n;
             while(queue.size() != 0){
                 n = queue.size();
                 while(n > 0){
                     tempNode = queue.at(0);
-                    queue.erase(queue.begin());
                     res.push_back(tempNode->root);
+                    queue.erase(queue.begin());
                     if(tempNode->left != nullptr){
                         queue.push_back(tempNode->left);
                     }
@@ -131,6 +131,8 @@ class BinarySearchTree{
                     n --;
                 }
             }
+
+            return res;
         }
 
         bool find(Node* currentNode, int value){
@@ -188,5 +190,14 @@ int main(){
     if(result){
         std::cout << "\nFound\n";
     }
+
+    std::vector<int> res;
+    res = bst.lot(bst.head);
+
+    for(int i = 0; i<res.size(); i++){
+        std::cout << res.at(i) << " ";
+    }
+
+    std::cout << "\n";
     return 0;
 }
