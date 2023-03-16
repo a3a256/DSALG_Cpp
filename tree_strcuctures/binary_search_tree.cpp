@@ -108,6 +108,31 @@ class BinarySearchTree{
             }
         }
 
+        std::vector<int> iot(Node* currentNode){
+            std::vector<Node*> queue;
+            std::vector<int> res;
+            Node* tempNode;
+            queue.push_back(currentNode);
+            int n;
+            while(queue.size() != 0){
+                n = queue.size();
+                while(n > 0){
+                    tempNode = queue.at(0);
+                    queue.erase(queue.begin());
+                    res.push_back(tempNode->root);
+                    if(tempNode->left != nullptr){
+                        queue.push_back(tempNode->left);
+                    }
+
+                    if(tempNode->right != nullptr){
+                        queue.push_back(tempNode->right);
+                    }
+
+                    n --;
+                }
+            }
+        }
+
         bool find(Node* currentNode, int value){
             if(currentNode != nullptr){
                 if(currentNode->root == value){
