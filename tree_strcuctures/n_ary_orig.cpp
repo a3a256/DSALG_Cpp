@@ -29,13 +29,30 @@ class NTree{
 
         std::string level, arr;
         Node* focusNode = head;
+        Node* parent;
         if(focusNode->children.size() == 0){
             focusNode->children.push_back(new_leaf);
         }else{
-            std::cout << "Do you want to continue with the current level?";
-            std::cin >> level;
-            if(level == "y"){
-                focusNode->children.push_back(new_leaf);
+            focusNode = head;
+            while(true){
+                parent = focusNode;
+                std::cout << "Do you want to continue with the current level?";
+                std::cin >> level;
+                if(level == "y"){
+                    focusNode->children.push_back(new_leaf);
+                    return;
+                }else{
+                    for(int i = 0; i<focusNode->children.size(); i++){
+                        std::cout << "Do you want to continue at " << focusNode->children[i]->val << "?";
+                        std::cin >> level;
+                        if(level == "y"){
+                            focusNode = focusNode->children[i];
+                            if(focusNode->children.size() == 0){
+                                focusNode->children.push_back(new_leaf);
+                            }
+                        }
+                    }
+                }
             }
         }
     }
