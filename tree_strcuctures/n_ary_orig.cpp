@@ -76,4 +76,6 @@ int main(){
     tree.insert(2);
     tree.insert(6);
     tree.insert(7);
+
+    tree.preOrderTraversal(tree.head);
 }
