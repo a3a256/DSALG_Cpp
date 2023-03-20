@@ -50,11 +50,20 @@ class NTree{
                                 focusNode = focusNode->children[i];
                                 if(focusNode->children.size() == 0){
                                     focusNode->children.push_back(new_leaf);
+                                    return;
                                 }
                             }
                         }
                     }
                 }
+            }
+        }
+
+
+        void preOrderTraversal(Node* curNode){
+            std::cout << curNode->val << " ";
+            for(int i = 0; i<curNode->children.size(); i++){
+                preOrderTraversal(curNode->children[i]);
             }
         }
 };
