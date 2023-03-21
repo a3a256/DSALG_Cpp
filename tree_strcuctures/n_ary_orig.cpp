@@ -66,6 +66,15 @@ class NTree{
                 preOrderTraversal(curNode->children[i]);
             }
         }
+
+
+        void postOrderTraversal(Node* curNode){
+            for(int i = 0; i<curNode->children.size(); i++){
+                postOrderTraversal(curNode->children[i]);
+            }
+
+            std::cout << curNode -> val << " "; 
+        }
 };
 
 
