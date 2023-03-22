@@ -113,4 +113,6 @@ int main(){
     tree.preOrderTraversal(tree.head);
     std::cout << "\n";
     tree.postOrderTraversal(tree.head);
+    std::cout << "\n";
+    tree.levelOrderTraversal(tree.head);
 }
