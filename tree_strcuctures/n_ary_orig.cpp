@@ -75,6 +75,27 @@ class NTree{
 
             std::cout << curNode -> val << " "; 
         }
+
+        void levelOrderTraversal(Node* curNode){
+            std::vector<Node*> q;
+            Node* p;
+            q.push_back(curNode);
+            int n, i;
+            while(q.size() != 0){
+                n = q.size();
+                while(n>0){
+                    p = q[0];
+                    q.erase(q.begin());
+                    std::cout << p->val << " ";
+                    for(i = 0; i<p->children.size(); i++){
+                        q.push_back(p->children[i]);
+                    }
+
+                    n--;
+                }
+                std::cout <<"\n";
+            }
+        }
 };
 
 
