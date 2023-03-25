@@ -1,6 +1,8 @@
+use std::convert::TryInto;
+
 fn binary_search(start: i32, end: i32, vec: Vec<i32>, target: i32)->i32{
     let _mid: i32 = (start+end)/2;
-    let mid: usize = (start+end)/2;
+    let mid: usize = ((start+end)/2).try_into().unwrap();
     if vec[mid] == target{
         return _mid;
     }else if vec[mid] > target{
@@ -22,6 +24,10 @@ fn main(){
         println!("{}", vec[i]);
         i += 1;
     }
+
+    let u: i32 = 5;
+
+    println!("{}", u/2);
 
     println!("{}", binary_search(0 as i32, 6 as i32, vec, 13 as i32));
 }
