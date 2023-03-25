@@ -1,11 +1,12 @@
-fn binary_search(start: i32, end: i32, v: let mut& Vec<i32>, target: i32)->i32{
-    let mid: i32 = (start+end)/2;
-    if v[mid] == target{
-        return mid;
-    }else if v[mid] > target{
-        return binary_search(start, mid-1, v, target);
-    }else if v[mid] < target{
-        return binary_search(mid+1, end, v, target);
+fn binary_search(start: i32, end: i32, vec: Vec<i32>, target: i32)->i32{
+    let _mid: i32 = (start+end)/2;
+    let mid: usize = (start+end)/2;
+    if vec[mid] == target{
+        return _mid;
+    }else if vec[mid] > target{
+        return binary_search(start, _mid-1, vec, target);
+    }else if vec[mid] < target{
+        return binary_search(_mid+1, end, vec, target);
     }
 
     return -1;
