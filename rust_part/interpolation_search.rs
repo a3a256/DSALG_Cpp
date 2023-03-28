@@ -31,5 +31,5 @@ fn interpolation_search(arr: Vec<i32>, lo: i32, hi: i32, target: i32) -> i32{
 fn main(){
     let vec: Vec<i32> = vec![1, 4, 5, 7, 9, 13, 17];
     let end: i32 = (vec.len()).try_into().unwrap();
-    println!("{}", interpolation_search(vec, 0 as i32, end, 13 as i32));
+    println!("{}", interpolation_search(vec, 0 as i32, end-1, 9 as i32));
 }
