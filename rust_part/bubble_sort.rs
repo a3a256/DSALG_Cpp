@@ -1,7 +1,7 @@
-use std::convert:TryInto;
+use std::convert::TryInto;
 
 
-fn bubble_sort(arr: &mut Vec<i32>)->Vec<i32>{
+fn bubble_sort(mut arr: Vec<i32>)->Vec<i32>{
     let mut sorted: bool = false;
     let mut i: i32 = 0;
     let mut temp: i32;
@@ -26,4 +26,19 @@ fn bubble_sort(arr: &mut Vec<i32>)->Vec<i32>{
 
 
     return arr;
+}
+
+
+fn main(){
+    let arr: Vec<i32> = vec![2, 1, 4, 13, 11, 9];
+    let mut res: Vec<i32> = Vec::new();
+    res = bubble_sort(arr.clone());
+    let length: i32 = (arr.len()).try_into().unwrap();
+    let mut index: usize;
+    let mut i: i32 = 0;
+    while i<length{
+        index = (i).try_into().unwrap();
+        println!("{}", res[index]);
+        i += 1;
+    }
 }
