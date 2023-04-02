@@ -1,15 +1,15 @@
 use std::convert::TryInto;
 
 
-enum Option{
+enum Option<T>{
     Some(T),
     None,
 }
 
 
 struct Node{
-    let mut value: Option<i32> = None;
-    struct Node next;
+    value: Option<i32> = None;
+    next: Node;
 
     fn Node(val: i32){
         value = Some(value);
