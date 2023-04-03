@@ -12,6 +12,14 @@ struct Node{
     next: Node;
 
     fn Node(val: i32){
-        value = Some(value);
+        value = Some(val);
+        next = Some(None);
+    }
+}
+
+
+impl LinkedList for Node{
+    fn add(&self, ent: i32){
+        return;
     }
 }
