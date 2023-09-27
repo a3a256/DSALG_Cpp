@@ -22,4 +22,9 @@ int main(){
     const int size = 5;
     int arr[size] = {3, 2, 7, 1, 9};
     int res[size] = sorted(arr, size);
+
+    for(int i=0; i<size; i++){
+        printf("%d ", res[i]);
+    }
+    printf("\n");
 }
