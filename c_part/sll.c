@@ -37,6 +37,22 @@ node add_end(node list, int value){
     return list;
 }
 
+node delete_at(node list, int index){
+    if(index == 0){
+        list = list->next;
+        return list;
+    }
+    node temp;
+    temp = list;
+    int i=0;
+    while(i<index-1){
+        temp = temp->next;
+        i++;
+    }
+    temp->next = temp->next->next;
+    return list;
+}
+
 void show(node list){
     node p;
     p = list;
@@ -54,5 +70,8 @@ int main(){
     lst = add_start(lst, 2);
     lst = add_start(lst, 3);
     lst = add_end(lst, 4);
+    lst = add_end(lst, 5);
+    show(lst);
+    lst = delete_at(lst, 2);
     show(lst);
 }
