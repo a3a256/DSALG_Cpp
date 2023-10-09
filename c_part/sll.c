@@ -53,6 +53,24 @@ node delete_at(node list, int index){
     return list;
 }
 
+node insert_at(node list, int index, int value){
+    node temp = createNode(value);
+    if(index == 0){
+        temp->next = list;
+        return temp;
+    }
+
+    node itr = list;
+    int i = 0;
+    while(i<index-1){
+        itr = itr->next;
+        i++;
+    }
+    temp->next = itr->next;
+    itr->next = temp;
+    return list;
+}
+
 void show(node list){
     node p;
     p = list;
@@ -74,4 +92,7 @@ int main(){
     show(lst);
     lst = delete_at(lst, 2);
     show(lst);
+    lst = insert_at(lst, 0, 11);
+    show(lst);
+    lst = insert_at(lst, 2, 12);
 }
