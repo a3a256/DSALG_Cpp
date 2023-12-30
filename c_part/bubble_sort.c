@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int* sorted(int *arr, int size){
+int* sorted(int *arr, const int size){
     int sorted = 0, i, temp;
     while(sorted == 0){
         sorted = 1;
@@ -19,11 +20,11 @@ int* sorted(int *arr, int size){
 
 
 int main(){
-    const int size = 5;
-    int arr[size] = {3, 2, 7, 1, 9};
-    int res[size] = sorted(arr, size);
+    int arr[5] = {3, 2, 7, 1, 9};
+    int* res = (int*)malloc(5*sizeof(int));
+    res = sorted(arr, 5);
 
-    for(int i=0; i<size; i++){
+    for(int i=0; i<5; i++){
         printf("%d ", res[i]);
     }
     printf("\n");
